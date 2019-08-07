@@ -1,0 +1,15 @@
+
+.idea/*
+!.idea/runConfigurations/
+
+.gradle
+
+build
+
+out
+
+*.class
+
+*.log
+
+!*.jar
