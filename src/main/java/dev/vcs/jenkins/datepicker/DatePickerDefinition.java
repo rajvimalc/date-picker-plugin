@@ -18,8 +18,6 @@ import static org.apache.commons.lang.StringUtils.isEmpty;
  */
 public class DatePickerDefinition extends ParameterDefinition {
 
-    private final static long serialVersionUID = 776445397055325795L;
-
     private final StringLocalDateValue stringLocalDateValue;
 
     @DataBoundConstructor

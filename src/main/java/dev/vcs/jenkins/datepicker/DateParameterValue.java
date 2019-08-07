@@ -22,8 +22,6 @@ import java.util.Objects;
  */
 public class DateParameterValue extends StringParameterValue {
 
-    private final static long serialVersionUID = -3270996447541190520L;
-
     private String dateFormat;
 
     @DataBoundConstructor

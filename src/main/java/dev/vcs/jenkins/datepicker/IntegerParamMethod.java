@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
  */
 public class IntegerParamMethod {
 
-    private final Logger log = LoggerFactory.getLogger(this.getClass());
+    private final static Logger log = LoggerFactory.getLogger(IntegerParamMethod.class);
 
     private final static Pattern PATTERN = Pattern.compile("^(?<name>.+)\\((?<parameter>[0-9]+)\\);?$");
 
