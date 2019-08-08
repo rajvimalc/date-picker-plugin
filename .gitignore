@@ -4,7 +4,8 @@
 
 .gradle
 
-build
+build/*
+!build/libs
 
 out
 

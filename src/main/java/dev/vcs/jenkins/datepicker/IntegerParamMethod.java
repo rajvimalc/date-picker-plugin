@@ -1,8 +1,5 @@
 package dev.vcs.jenkins.datepicker;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -13,8 +10,6 @@ import java.util.regex.Pattern;
  */
 public class IntegerParamMethod {
 
-    private final static Logger log = LoggerFactory.getLogger(IntegerParamMethod.class);
-
     private final static Pattern PATTERN = Pattern.compile("^(?<name>.+)\\((?<parameter>[0-9]+)\\);?$");
 
     public String name;
@@ -24,7 +19,6 @@ public class IntegerParamMethod {
     private String code;
 
     public IntegerParamMethod(String code) {
-        log.info("IntegerParamMethod({})", code);
         this.code = code;
         parse();
     }

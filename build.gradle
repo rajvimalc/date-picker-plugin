@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'dev.vcs.jenkins'
-version '1.0-SNAPSHOT'
+version '1.0'
 description 'Date Picker Plugin for Jenkins Pipeline (built with Gradle)'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -22,11 +22,11 @@ dependencies {
 }
 
 jenkinsPlugin {
-    coreVersion = '2.157'                                                       // Version of Jenkins core this plugin depends on.
-    displayName = 'Date Picker Plugin'                                          // Human-readable name of plugin.
-    url = 'https://wiki.jenkins.io/display/JENKINS/date-picker-plugin'          // URL for plugin on Jenkins Wiki.
-    gitHubUrl = 'https://github.com/rajvimalc/date-picker-plugin'               // Plugin URL on GitHub.
-    shortName = 'date-picker-plugin'                                            // Plugin ID, defaults to the project name without trailing '-plugin'
+    coreVersion = '2.157'   // Version of Jenkins core this plugin depends on.
+    displayName = 'Date Picker Plugin'  // Human-readable name of plugin.
+    url = 'https://github.com/rajvimalc/date-picker-plugin/wiki/Date-Picker-Plugin' // URL for plugin on Jenkins Wiki.
+    gitHubUrl = 'https://github.com/rajvimalc/date-picker-plugin'   // Plugin URL on GitHub.
+    shortName = 'date-picker-plugin'    // Plugin ID, defaults to the project name without trailing '-plugin'
 
     developers {
         developer {

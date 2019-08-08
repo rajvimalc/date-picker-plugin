@@ -16,16 +16,13 @@
         <f:textbox/>
     </f:entry>
 
-    <f:entry title="Date Format" field="dateFormat">
+    <f:entry title="Description" field="description">
         <f:textbox/>
     </f:entry>
 
     <f:entry title="Default Value" field="defaultValue">
-        <f:textbox/>
-    </f:entry>
-
-    <f:entry title="Description" field="description">
-        <f:textbox/>
+        <f:textbox/><br/>
+        <label>Format: yyyy-MM-dd'T'HH:mm (example: 2020-01-01T00:00)</label>
     </f:entry>
 
 </j:jelly>
