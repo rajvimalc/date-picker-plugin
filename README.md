@@ -46,3 +46,5 @@ def userInput = input (
 )
 echo ("Start Date: " + userInput)
 ```
+
+![Screenshot](userinput.png)
