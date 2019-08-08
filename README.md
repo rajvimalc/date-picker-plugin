@@ -22,3 +22,27 @@ Thanks to Github User:
      Example: `2020-01-01T14:10`
  
      Defaulted to ISO format `yyyy-MM-dd'T'HH:mm` (output of `<input type="datetime-local"/>`)
+
+### Usage:
+
+- Parameterized:
+
+![Screenshot](parameterized.png)
+
+- Pipeline Script:
+
+```
+def userInput = input (
+    id: 'startDate', 
+    message: "When to run?", 
+    parameters: [
+        [
+            $class: 'DatePickerDefinition', 
+            description: 'Date to run', 
+            name: 'Start Date', 
+            defaultValue: '2020-01-01T00:00'
+        ]
+    ]
+)
+echo ("Start Date: " + userInput)
+```
