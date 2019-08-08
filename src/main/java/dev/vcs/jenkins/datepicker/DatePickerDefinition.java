@@ -9,6 +9,10 @@ import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.QueryParameter;
 import org.kohsuke.stapler.StaplerRequest;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import static org.apache.commons.lang.StringUtils.isBlank;
 import static org.apache.commons.lang.StringUtils.isEmpty;
 
 /**
@@ -18,12 +22,17 @@ import static org.apache.commons.lang.StringUtils.isEmpty;
  */
 public class DatePickerDefinition extends ParameterDefinition {
 
-    private final StringLocalDateValue stringLocalDateValue;
+    private static final String DEFAULT_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm";
+
+    private String defaultValue;
+
+    private String value;
 
     @DataBoundConstructor
-    public DatePickerDefinition(String name, String dateFormat, String defaultValue, String description) {
+    public DatePickerDefinition(String name, String defaultValue, String description) {
         super(name, description);
-        this.stringLocalDateValue = new StringLocalDateValue(defaultValue, dateFormat);
+        this.defaultValue = defaultValue;
+        this.value = defaultValue;
     }
 
     @Override
@@ -36,20 +45,13 @@ public class DatePickerDefinition extends ParameterDefinition {
         return super.getDescription();
     }
 
-    /**
-     * Called from jelly
-     * @return String
-     */
-    public String getDateFormat() {
-        return stringLocalDateValue.getStringDateFormat();
-    }
 
     /**
      * Called from jelly
      * @return String
      */
     public String getDefaultValue() {
-        return stringLocalDateValue.getStringLocalDate();
+        return this.defaultValue;
     }
 
     /**
@@ -57,20 +59,20 @@ public class DatePickerDefinition extends ParameterDefinition {
      * @return String
      */
     public String getValue() {
-        return stringLocalDateValue.getValue();
+        return this.value;
     }
 
     @Override
     public DateParameterValue getDefaultParameterValue() {
         DateParameterValue value = new DateParameterValue(getName(), getValue(), getDescription());
-        value.createValueFromDefault(getDateFormat());
+        value.createValueFromDefault(DEFAULT_DATE_FORMAT);
         return value;
     }
 
     @Override
     public ParameterValue createValue(StaplerRequest req, JSONObject jo) {
         DateParameterValue value = req.bindJSON(DateParameterValue.class, jo);
-        value.createValueFromJenkins(getDateFormat());
+        value.createValueFromJenkins(DEFAULT_DATE_FORMAT);
         return value;
     }
 
@@ -81,8 +83,8 @@ public class DatePickerDefinition extends ParameterDefinition {
             return getDefaultParameterValue();
         }
 
-        DateParameterValue value = new DateParameterValue(getName(), requestedValue, getDateFormat(), getDescription());
-        value.createValueFromPostRequest(getDateFormat());
+        DateParameterValue value = new DateParameterValue(getName(), requestedValue, DEFAULT_DATE_FORMAT, getDescription());
+        value.createValueFromPostRequest(DEFAULT_DATE_FORMAT);
         return value;
     }
 
@@ -98,30 +100,32 @@ public class DatePickerDefinition extends ParameterDefinition {
 
         public FormValidation doCheckName(@QueryParameter String name) {
             if (isEmpty(name)) {
-                return FormValidation.error("Please enter a name.");
+                return FormValidation.error("Please enter a name");
             }
             return FormValidation.ok();
         }
 
-        public FormValidation doCheckDateFormat(@QueryParameter String dateFormat) {
-            if (isEmpty(dateFormat)) {
-                return FormValidation.error("Please enter a date format");
-            }
-            return FormValidation.ok();
-        }
-
-        public FormValidation doCheckDefaultValue(@QueryParameter String dateFormat, @QueryParameter String defaultValue) {
-            StringLocalDateValue value = new StringLocalDateValue(defaultValue, dateFormat);
-            if (value.isCompletionFormat()) {
+        public FormValidation doCheckDefaultValue(@QueryParameter String defaultValue) {
+            if (validateJavaDate(defaultValue)) {
                 return FormValidation.ok();
             }
-
-            if (value.isJavaFormat()) {
-                return FormValidation.ok();
-            }
-
             return FormValidation.error("Invalid default value");
         }
+
+        public boolean validateJavaDate(String strDate) {
+            if (isBlank(strDate)) {
+                return true;
+            }
+            final SimpleDateFormat sdf = new SimpleDateFormat(DEFAULT_DATE_FORMAT);
+            sdf.setLenient(false);
+            try {
+                sdf.parse(strDate);
+                return true;
+            } catch (ParseException e) {
+                return false;
+            }
+        }
+
     }
 
 }

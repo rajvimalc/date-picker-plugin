@@ -13,19 +13,16 @@
     -->
 
     <f:entry title="Name" field="name">
-        <input type="text"/>
-    </f:entry>
-
-    <f:entry title="Date Format" field="dateFormat">
-        <input type="text" value="MM/dd/yyyy HH:mm aaa"/>
-    </f:entry>
-
-    <f:entry title="Default Value" field="defaultValue">
-        <input type="datetime-local"/>
+        <f:textbox/>
     </f:entry>
 
     <f:entry title="Description" field="description">
-        <input type="text"/>
+        <f:textbox/>
+    </f:entry>
+
+    <f:entry title="Default Value" field="defaultValue">
+        <f:textbox/><br/>
+        <label>Format: yyyy-MM-dd'T'HH:mm (example: 2020-01-01T00:00)</label>
     </f:entry>
 
 </j:jelly>
