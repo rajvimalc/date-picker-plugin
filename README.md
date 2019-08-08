@@ -1,6 +1,7 @@
 # Date Picker Plugin
 Date Picker Plugin for Jenkins (built with Gradle)
 
+
 ### Author:
 
 ###### Name: Vimalraj Chandra Sekaran
@@ -15,7 +16,26 @@ https://github.com/jenkinsci/date-parameter-plugin
 Thanks to Github User:
 ###### JuHyun Lee (leejaycoke)
 
-### About parameters:
+
+## About parameters:
+
+### Class: DatePickerDefinition
+
+- Name: Mandatory
+  
+- Description: Optional
+  
+- Default Value:
+
+  1. Can be blank.
+
+  2. Format: `yyyy-MM-dd`
+
+     Example: `2020-01-01`
+ 
+     Defaulted to ISO format `yyyy-MM-dd` (output of `<input type="date"/>`)
+
+### Class: TimestampPickerDefinition
 
 - Name: Mandatory
   
@@ -30,6 +50,7 @@ Thanks to Github User:
      Example: `2020-01-01T14:10`
  
      Defaulted to ISO format `yyyy-MM-dd'T'HH:mm` (output of `<input type="datetime-local"/>`)
+
 
 ### Usage:
 
