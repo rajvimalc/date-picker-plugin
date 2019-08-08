@@ -4,7 +4,7 @@
     <f:entry title="${it.name}" description="${it.description}">
         <div name="parameter" description="${it.description}">
             <input type="hidden" name="name" value="${it.name}"/>
-            <input type="date" min="1900-01-01" max="2099-12-31" name="value" value="${it.value}"/>
+            <input type="datetime-local" min="1900-01-01T00:00" max="2099-12-31T23:59" name="value" value="${it.value}"/>
         </div>
     </f:entry>
 

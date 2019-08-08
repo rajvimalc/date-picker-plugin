@@ -40,19 +40,59 @@ Thanks to Github User:
 - Pipeline Script:
 
 ```
-def userInput = input (
-    id: 'startDate', 
-    message: "When to run?", 
-    parameters: [
-        [
-            $class: 'DatePickerDefinition', 
-            description: 'Date to run', 
-            name: 'Start Date', 
-            defaultValue: '2020-01-01T00:00'
+node {
+    stage('Init') {
+       echo ("Initializing...")
+    }
+    def dates = input (
+        id: 'dates', 
+        message: "When to run?", 
+        parameters: [
+            [
+                $class: 'TimestampPickerDefinition', 
+                defaultValue: '2019-08-08T10:10', 
+                description: 'Date to run', 
+                name: 'Start Date'
+            ],
+            [
+                $class: 'DatePickerDefinition', 
+                defaultValue: '2019-08-10', 
+                description: 'Date to wait', 
+                name: 'End Date'
+            ]
         ]
-    ]
-)
-echo ("Start Date: " + userInput)
+    )
+    echo ("Date to run: " + dates['Start Date'])
+    echo ("Date to wait: " + dates['End Date'])
+}
 ```
 
-![Screenshot](userinput.png)
+![Screenshot](userinput1.png)
+![Screenshot](userinput2.png)
+
+### Console Output:
+```
+Started by user VIMALRAJ CHANDRA SEKARAN
+Running in Durability level: MAX_SURVIVABILITY
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\Program Files (x86)\Jenkins\workspace\FirstPipelineJob
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Init)
+[Pipeline] echo
+Initializing...
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] input
+Input requested
+Approved by VIMALRAJ CHANDRA SEKARAN
+[Pipeline] echo
+Date to run: 2019-08-08T10:10
+[Pipeline] echo
+Date to wait: 2019-08-10
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
+```
