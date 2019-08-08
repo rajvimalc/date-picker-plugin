@@ -4,8 +4,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author Vimalraj Chandra Sekaran (vchandr4)
- * Email: vchandr4@mazdausa.com
+ * @author Vimalraj Chandra Sekaran (rajvimalc)
+ * Email: rajvimalc@gmail.com
  * Created on: 8/7/2019 3:25 PM
  */
 public class IntegerParamMethod {

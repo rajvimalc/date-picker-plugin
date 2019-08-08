@@ -1,11 +1,19 @@
-# Date Picker Plugin (for jenkins)
-Date Picker Plugin for Jenkins Pipeline (built with Gradle)
+# Date Picker Plugin
+Date Picker Plugin for Jenkins (built with Gradle)
+
+### Author:
+
+###### Name: Vimalraj Chandra Sekaran
+
+###### Github ID: rajvimalc
+
+###### Email: rajvimalc@gmail.com
 
 ### Based on the code from:
 https://github.com/jenkinsci/date-parameter-plugin
 
 Thanks to Github User:
-##### JuHyun Lee (leejaycoke)
+###### JuHyun Lee (leejaycoke)
 
 ### About parameters:
 

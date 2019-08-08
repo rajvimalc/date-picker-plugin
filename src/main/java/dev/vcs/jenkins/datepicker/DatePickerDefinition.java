@@ -16,8 +16,8 @@ import static org.apache.commons.lang.StringUtils.isBlank;
 import static org.apache.commons.lang.StringUtils.isEmpty;
 
 /**
- * @author Vimalraj Chandra Sekaran (vchandr4)
- * Email: vchandr4@mazdausa.com
+ * @author Vimalraj Chandra Sekaran (rajvimalc)
+ * Email: rajvimalc@gmail.com
  * Created on: 8/7/2019 3:25 PM
  */
 public class DatePickerDefinition extends ParameterDefinition {
