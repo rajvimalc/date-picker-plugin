@@ -19,22 +19,6 @@ Thanks to Github User:
 
 ## About parameters:
 
-### Class: DatePickerDefinition
-
-- Name: Mandatory
-  
-- Description: Optional
-  
-- Default Value:
-
-  1. Can be blank.
-
-  2. Format: `yyyy-MM-dd`
-
-     Example: `2020-01-01`
- 
-     Defaulted to ISO format `yyyy-MM-dd` (output of `<input type="date"/>`)
-
 ### Class: DateTimePickerDefinition
 
 - Name: Mandatory
@@ -51,6 +35,22 @@ Thanks to Github User:
  
      Defaulted to ISO format `yyyy-MM-dd'T'HH:mm` (output of `<input type="datetime-local"/>`)
 
+### Class: DatePickerDefinition
+
+- Name: Mandatory
+  
+- Description: Optional
+  
+- Default Value:
+
+  1. Can be blank.
+
+  2. Format: `yyyy-MM-dd`
+
+     Example: `2020-01-01`
+ 
+     Defaulted to `yyyy-MM-dd` format (output of `<input type="date"/>`)
+
 ### Class: TimePickerDefinition
 
 - Name: Mandatory
@@ -65,7 +65,7 @@ Thanks to Github User:
 
      Example: `14:10`
  
-     Defaulted to ISO format `HH:mm` (output of `<input type="time"/>`)
+     Defaulted to `HH:mm` format (output of `<input type="time"/>`)
 
 
 ### Usage:
@@ -113,6 +113,7 @@ node {
 
 ![Screenshot](usage/userinput-datetime.png)
 ![Screenshot](usage/userinput-date.png)
+![Screenshot](usage/userinput-time.png)
 
 ### Console Output:
 ```
@@ -120,7 +121,7 @@ Started by user VIMALRAJ CHANDRA SEKARAN
 Running in Durability level: MAX_SURVIVABILITY
 [Pipeline] Start of Pipeline
 [Pipeline] node
-Running on Jenkins in C:\Program Files (x86)\Jenkins\workspace\FirstPipelineJob
+Running on Jenkins in C:\Program Files (x86)\Jenkins\workspace\DatePickerPipelineJob
 [Pipeline] {
 [Pipeline] stage
 [Pipeline] { (Init)
@@ -135,6 +136,8 @@ Approved by VIMALRAJ CHANDRA SEKARAN
 Date to run: 2019-08-08T10:10
 [Pipeline] echo
 Date to wait: 2019-08-10
+[Pipeline] echo
+End Time: 16:10
 [Pipeline] }
 [Pipeline] // node
 [Pipeline] End of Pipeline
