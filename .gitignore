@@ -9,6 +9,8 @@ build/*
 
 out
 
+work
+
 *.class
 
 *.log
