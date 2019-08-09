@@ -35,7 +35,7 @@ Thanks to Github User:
  
      Defaulted to ISO format `yyyy-MM-dd` (output of `<input type="date"/>`)
 
-### Class: TimestampPickerDefinition
+### Class: DateTimePickerDefinition
 
 - Name: Mandatory
   
@@ -51,12 +51,28 @@ Thanks to Github User:
  
      Defaulted to ISO format `yyyy-MM-dd'T'HH:mm` (output of `<input type="datetime-local"/>`)
 
+### Class: TimePickerDefinition
+
+- Name: Mandatory
+  
+- Description: Optional
+  
+- Default Value:
+
+  1. Can be blank.
+
+  2. Format: `HH:mm`
+
+     Example: `14:10`
+ 
+     Defaulted to ISO format `HH:mm` (output of `<input type="time"/>`)
+
 
 ### Usage:
 
 - Parameterized:
 
-![Screenshot](parameterized.png)
+![Screenshot](usage/parameterized.png)
 
 - Pipeline Script:
 
@@ -70,7 +86,7 @@ node {
         message: "When to run?", 
         parameters: [
             [
-                $class: 'TimestampPickerDefinition', 
+                $class: 'DateTimePickerDefinition', 
                 defaultValue: '2019-08-08T10:10', 
                 description: 'Date to run', 
                 name: 'Start Date'
@@ -80,16 +96,23 @@ node {
                 defaultValue: '2019-08-10', 
                 description: 'Date to wait', 
                 name: 'End Date'
+            ],
+            [
+                $class: 'TimePickerDefinition', 
+                defaultValue: '14:10', 
+                description: 'End time', 
+                name: 'End Time'
             ]
         ]
     )
     echo ("Date to run: " + dates['Start Date'])
     echo ("Date to wait: " + dates['End Date'])
+    echo ("End Time: " + dates['End Time'])
 }
 ```
 
-![Screenshot](userinput1.png)
-![Screenshot](userinput2.png)
+![Screenshot](usage/userinput-datetime.png)
+![Screenshot](usage/userinput-date.png)
 
 ### Console Output:
 ```

@@ -8,14 +8,14 @@ import org.kohsuke.stapler.DataBoundConstructor;
  * Email: rajvimalc@gmail.com
  * Created on: 8/7/2019 3:25 PM
  */
-public class TimestampPickerDefinition extends PickerDefinition {
+public class TimePickerDefinition extends PickerDefinition {
 
-    private static final String DEFAULT_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm";
+    private static final String DEFAULT_DATE_FORMAT = "HH:mm";
 
-    private static final String DISPLAY_NAME = "Timestamp Picker Parameter";
+    private static final String DISPLAY_NAME = "Time Picker Parameter";
 
     @DataBoundConstructor
-    public TimestampPickerDefinition(String name, String defaultValue, String description) {
+    public TimePickerDefinition(String name, String defaultValue, String description) {
         super(name, defaultValue, description, DEFAULT_DATE_FORMAT);
     }
 

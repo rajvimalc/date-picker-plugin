@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'dev.vcs.jenkins'
-version '1.1'
+version '1.0-SNAPSHOT'
 description 'Date Picker Plugin for Jenkins (built with Gradle)'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
