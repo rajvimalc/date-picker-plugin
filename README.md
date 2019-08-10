@@ -5,63 +5,41 @@ Date Picker Plugin for Jenkins (built with Gradle)
 ### Author:
 
 ###### Name: Vimalraj Chandra Sekaran
-
 ###### Github ID: rajvimalc
-
 ###### Email: rajvimalc@gmail.com
 
 ### Based on the code from:
 https://github.com/jenkinsci/date-parameter-plugin
-
-Thanks to Github User:
-###### JuHyun Lee (leejaycoke)
+######Thanks to Github User: JuHyun Lee (leejaycoke)
 
 
 ## About parameters:
 
-### Class: DateTimePickerDefinition
+#### Class: DatePickerDefinition
 
 - Name: Mandatory
   
 - Description: Optional
+
+- Picker Type: Mandatory
+    
+  Select Options: `yyyy-MM-dd'T'HH:mm` | `yyyy-MM-dd` | `HH:mm`
   
-- Default Value:
+- Default Value: Optional
 
-  1. Can be blank.
-
-  2. Format: `yyyy-MM-dd'T'HH:mm`
-
+  1. #####Picker Type: `yyyy-MM-dd'T'HH:mm`
+  
      Example: `2020-01-01T14:10`
- 
+   
      Defaulted to ISO format `yyyy-MM-dd'T'HH:mm` (output of `<input type="datetime-local"/>`)
-
-### Class: DatePickerDefinition
-
-- Name: Mandatory
   
-- Description: Optional
-  
-- Default Value:
-
-  1. Can be blank.
-
-  2. Format: `yyyy-MM-dd`
+  2. #####Picker Type: `yyyy-MM-dd`
 
      Example: `2020-01-01`
  
      Defaulted to `yyyy-MM-dd` format (output of `<input type="date"/>`)
 
-### Class: TimePickerDefinition
-
-- Name: Mandatory
-  
-- Description: Optional
-  
-- Default Value:
-
-  1. Can be blank.
-
-  2. Format: `HH:mm`
+  3. #####Picker Type: `HH:mm`
 
      Example: `14:10`
  
@@ -86,28 +64,29 @@ node {
         message: "When to run?", 
         parameters: [
             [
-                $class: 'DateTimePickerDefinition', 
-                defaultValue: '2019-08-08T10:10', 
-                description: 'Date to run', 
-                name: 'Start Date'
-            ],
-            [
                 $class: 'DatePickerDefinition', 
-                defaultValue: '2019-08-10', 
-                description: 'Date to wait', 
-                name: 'End Date'
-            ],
-            [
-                $class: 'TimePickerDefinition', 
-                defaultValue: '14:10', 
-                description: 'End time', 
-                name: 'End Time'
+                name: 'Start Date Time', 
+                description: 'Date to start', 
+                type: 'DATE_TIME', 
+                defaultValue: '2019-08-08T15:30'
+            ],[
+                $class: 'DatePickerDefinition', 
+                name: 'End Date', 
+                description: 'Date to end', 
+                type: 'DATE', 
+                defaultValue: '2019-08-10'
+            ],[
+                $class: 'DatePickerDefinition', 
+                name: 'End Time', 
+                description: 'Time to end', 
+                type: 'TIME', 
+                defaultValue: '09:15'
             ]
         ]
     )
-    echo ("Date to run: " + dates['Start Date'])
-    echo ("Date to wait: " + dates['End Date'])
-    echo ("End Time: " + dates['End Time'])
+    echo ("Date to Start: " + dates['Start Date Time'])
+    echo ("Date to End: " + dates['End Date'])
+    echo ("Time to End: " + dates['End Time'])
 }
 ```
 
@@ -115,13 +94,13 @@ node {
 ![Screenshot](usage/userinput-date.png)
 ![Screenshot](usage/userinput-time.png)
 
-### Console Output:
+#### Console Output:
 ```
-Started by user VIMALRAJ CHANDRA SEKARAN
+Started by user Vimalraj Chandra Sekaran
 Running in Durability level: MAX_SURVIVABILITY
 [Pipeline] Start of Pipeline
 [Pipeline] node
-Running on Jenkins in C:\Program Files (x86)\Jenkins\workspace\DatePickerPipelineJob
+Running on Jenkins in C:\Program Files (x86)\Jenkins\workspace\Date Picker Job
 [Pipeline] {
 [Pipeline] stage
 [Pipeline] { (Init)
@@ -131,13 +110,13 @@ Initializing...
 [Pipeline] // stage
 [Pipeline] input
 Input requested
-Approved by VIMALRAJ CHANDRA SEKARAN
+Approved by Vimalraj Chandra Sekaran
 [Pipeline] echo
-Date to run: 2019-08-08T10:10
+Date to Start: 2019-08-08T15:30
 [Pipeline] echo
-Date to wait: 2019-08-10
+Date to End: 2019-08-10
 [Pipeline] echo
-End Time: 16:10
+Time to End: 09:15
 [Pipeline] }
 [Pipeline] // node
 [Pipeline] End of Pipeline
