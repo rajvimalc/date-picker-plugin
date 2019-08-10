@@ -20,9 +20,13 @@
         <f:textbox/>
     </f:entry>
 
+    <f:entry title="Picker Type" field="type">
+        <f:select/>
+    </f:entry>
+
     <f:entry title="Default Value" field="defaultValue">
         <f:textbox/><br/>
-        <label>Format: yyyy-MM-dd (example: 2020-01-01)</label>
+        <label>Examples: 2020-01-01T10:15, 2020-12-31, 14:30</label>
     </f:entry>
 
 </j:jelly>

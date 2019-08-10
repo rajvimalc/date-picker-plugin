@@ -10,19 +10,17 @@ import org.kohsuke.stapler.DataBoundConstructor;
  */
 public class DatePickerDefinition extends PickerDefinition {
 
-    private static final String DEFAULT_DATE_FORMAT = "yyyy-MM-dd";
-
     private static final String DISPLAY_NAME = "Date Picker Parameter";
 
     @DataBoundConstructor
-    public DatePickerDefinition(String name, String defaultValue, String description) {
-        super(name, defaultValue, description, DEFAULT_DATE_FORMAT);
+    public DatePickerDefinition(String name, String description, String type, String defaultValue) {
+        super(name, description, type, defaultValue);
     }
 
     @Extension
     public static final class DescriptorImpl extends PickerDescriptor {
         public DescriptorImpl() {
-            super(DISPLAY_NAME, DEFAULT_DATE_FORMAT);
+            super(DISPLAY_NAME);
         }
     }
 

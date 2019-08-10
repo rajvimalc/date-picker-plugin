@@ -86,28 +86,29 @@ node {
         message: "When to run?", 
         parameters: [
             [
-                $class: 'DateTimePickerDefinition', 
-                defaultValue: '2019-08-08T10:10', 
-                description: 'Date to run', 
-                name: 'Start Date'
-            ],
-            [
                 $class: 'DatePickerDefinition', 
-                defaultValue: '2019-08-10', 
-                description: 'Date to wait', 
-                name: 'End Date'
-            ],
-            [
-                $class: 'TimePickerDefinition', 
-                defaultValue: '14:10', 
-                description: 'End time', 
-                name: 'End Time'
+                name: 'Start Date Time', 
+                description: 'Date to start', 
+                type: 'DATE_TIME', 
+                defaultValue: '2019-08-08T15:30'
+            ],[
+                $class: 'DatePickerDefinition', 
+                name: 'End Date', 
+                description: 'Date to end', 
+                type: 'DATE', 
+                defaultValue: '2019-08-10'
+            ],[
+                $class: 'DatePickerDefinition', 
+                name: 'End Time', 
+                description: 'Time to end', 
+                type: 'TIME', 
+                defaultValue: '09.15'
             ]
         ]
     )
-    echo ("Date to run: " + dates['Start Date'])
-    echo ("Date to wait: " + dates['End Date'])
-    echo ("End Time: " + dates['End Time'])
+    echo ("Date to Start: " + dates['Start Date Time'])
+    echo ("Date to End: " + dates['End Date'])
+    echo ("Time to End: " + dates['End Time'])
 }
 ```
 

@@ -2,6 +2,7 @@ package dev.vcs.jenkins.datepicker;
 
 import hudson.model.ParameterDefinition;
 import hudson.util.FormValidation;
+import hudson.util.ListBoxModel;
 import org.kohsuke.stapler.QueryParameter;
 
 import java.text.ParseException;
@@ -18,16 +19,22 @@ import static org.apache.commons.lang.StringUtils.isEmpty;
 public class PickerDescriptor extends ParameterDefinition.ParameterDescriptor {
 
     private final String displayName;
-    private final String defaultFormat;
 
-    protected PickerDescriptor(String displayName, String defaultFormat) {
+    protected PickerDescriptor(String displayName) {
         this.displayName = displayName;
-        this.defaultFormat = defaultFormat;
     }
 
     @Override
     public String getDisplayName() {
         return this.displayName;
+    }
+
+    public ListBoxModel doFillTypeItems() {
+        ListBoxModel items = new ListBoxModel();
+        for (PickerType type : PickerType.values()) {
+            items.add(type.getFormat(), type.getType());
+        }
+        return items;
     }
 
     public FormValidation doCheckName(@QueryParameter String name) {
@@ -37,18 +44,18 @@ public class PickerDescriptor extends ParameterDefinition.ParameterDescriptor {
         return FormValidation.ok();
     }
 
-    public FormValidation doCheckDefaultValue(@QueryParameter String defaultValue) {
-        if (validateJavaDate(defaultValue)) {
+    public FormValidation doCheckDefaultValue(@QueryParameter String type, @QueryParameter String defaultValue) {
+        if (validateJavaDate(type, defaultValue)) {
             return FormValidation.ok();
         }
         return FormValidation.error("Invalid default value");
     }
 
-    public boolean validateJavaDate(String strDate) {
+    public boolean validateJavaDate(String type, String strDate) {
         if (isBlank(strDate)) {
             return true;
         }
-        final SimpleDateFormat sdf = new SimpleDateFormat(defaultFormat);
+        final SimpleDateFormat sdf = new SimpleDateFormat(PickerType.resolve(type).getFormat());
         sdf.setLenient(false);
         try {
             sdf.parse(strDate);

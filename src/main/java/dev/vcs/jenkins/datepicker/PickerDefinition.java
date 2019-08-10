@@ -14,17 +14,25 @@ import static org.apache.commons.lang.StringUtils.isEmpty;
  */
 public class PickerDefinition extends ParameterDefinition {
 
+    private PickerType pickerType;
+
+    private String type;
+
+    private String defaultFormat;
+
     private String defaultValue;
 
     private String value;
 
-    private final String defaultFormat;
-
-    protected PickerDefinition(String name, String defaultValue, String description, String defaultFormat) {
+    protected PickerDefinition(String name, String description, String type, String defaultValue) {
         super(name, description);
+
+        this.pickerType = PickerType.resolve(type);
+        this.type = pickerType.getType();
+        this.defaultFormat = pickerType.getFormat();
+
         this.defaultValue = defaultValue;
         this.value = defaultValue;
-        this.defaultFormat = defaultFormat;
     }
 
     @Override
@@ -52,6 +60,14 @@ public class PickerDefinition extends ParameterDefinition {
      */
     public String getValue() {
         return this.value;
+    }
+
+    /**
+     * Called from jelly
+     * @return the picker type
+     */
+    public String getType() {
+        return this.type;
     }
 
     @Override
