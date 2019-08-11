@@ -30,9 +30,9 @@ public class PickerDescriptor extends ParameterDefinition.ParameterDescriptor {
     }
 
     public ListBoxModel doFillTypeItems() {
-        ListBoxModel items = new ListBoxModel();
+        final ListBoxModel items = new ListBoxModel();
         for (PickerType type : PickerType.values()) {
-            items.add(type.getFormat(), type.getType());
+            items.add(type.getDisplayDescription(), type.getType());
         }
         return items;
     }

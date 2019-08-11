@@ -17,8 +17,11 @@ public enum PickerType {
 
     private final String format;
 
+    private final String displayDescription;
+
     PickerType(String format) {
         this.format = format;
+        this.displayDescription = String.format("%s (%s)", this.name(), format);
     }
 
     public String getType() {
@@ -29,6 +32,9 @@ public enum PickerType {
         return format;
     }
 
+    public String getDisplayDescription() {
+        return displayDescription;
+    }
 
     public static PickerType resolve(String typeStr) {
         if (StringUtils.isNotBlank(typeStr)) {
