@@ -23,23 +23,27 @@ https://github.com/jenkinsci/date-parameter-plugin
 
 - Picker Type: Mandatory
     
-  Select Options: `yyyy-MM-dd'T'HH:mm` | `yyyy-MM-dd` | `HH:mm`
+  Select Options: 
+  
+        DATE_TIME (yyyy-MM-dd'T'HH:mm)
+        DATE (yyyy-MM-dd)
+        TIME (HH:mm)
   
 - Default Value: Optional
 
-  1. #####Picker Type: `yyyy-MM-dd'T'HH:mm`
+  1. #####Picker Type: `DATE_TIME (yyyy-MM-dd'T'HH:mm)`
   
      Example: `2020-01-01T14:10`
    
      Defaulted to ISO format `yyyy-MM-dd'T'HH:mm` (output of `<input type="datetime-local"/>`)
   
-  2. #####Picker Type: `yyyy-MM-dd`
+  2. #####Picker Type: `DATE (yyyy-MM-dd)`
 
      Example: `2020-01-01`
  
      Defaulted to `yyyy-MM-dd` format (output of `<input type="date"/>`)
 
-  3. #####Picker Type: `HH:mm`
+  3. #####Picker Type: `TIME (HH:mm)`
 
      Example: `14:10`
  
