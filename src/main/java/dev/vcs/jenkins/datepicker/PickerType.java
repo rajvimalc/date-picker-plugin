@@ -44,6 +44,6 @@ public enum PickerType {
                 }
             }
         }
-        throw new RuntimeException("Invalid Picker Type");
+        throw new PickerException("Invalid Picker Type");
     }
 }

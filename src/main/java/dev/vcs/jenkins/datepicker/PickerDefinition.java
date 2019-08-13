@@ -14,8 +14,6 @@ import static org.apache.commons.lang.StringUtils.isEmpty;
  */
 public class PickerDefinition extends ParameterDefinition {
 
-    private PickerType pickerType;
-
     private String type;
 
     private String defaultFormat;
@@ -27,24 +25,13 @@ public class PickerDefinition extends ParameterDefinition {
     protected PickerDefinition(String name, String description, String type, String defaultValue) {
         super(name, description);
 
-        this.pickerType = PickerType.resolve(type);
+        final PickerType pickerType = PickerType.resolve(type);
         this.type = pickerType.getType();
         this.defaultFormat = pickerType.getFormat();
 
         this.defaultValue = defaultValue;
         this.value = defaultValue;
     }
-
-    @Override
-    public String getName() {
-        return super.getName();
-    }
-
-    @Override
-    public String getDescription() {
-        return super.getDescription();
-    }
-
 
     /**
      * Called from jelly
@@ -66,22 +53,23 @@ public class PickerDefinition extends ParameterDefinition {
      * Called from jelly
      * @return the picker type
      */
+    @Override
     public String getType() {
         return this.type;
     }
 
     @Override
     public DateParameterValue getDefaultParameterValue() {
-        DateParameterValue value = new DateParameterValue(getName(), getValue(), getDescription());
-        value.createValueFromDefault(defaultFormat);
-        return value;
+        DateParameterValue dateParameterValue = new DateParameterValue(getName(), getValue(), getDescription());
+        dateParameterValue.createValueFromDefault(defaultFormat);
+        return dateParameterValue;
     }
 
     @Override
     public ParameterValue createValue(StaplerRequest req, JSONObject jo) {
-        DateParameterValue value = req.bindJSON(DateParameterValue.class, jo);
-        value.createValueFromJenkins(defaultFormat);
-        return value;
+        DateParameterValue dateParameterValue = req.bindJSON(DateParameterValue.class, jo);
+        dateParameterValue.createValueFromJenkins(defaultFormat);
+        return dateParameterValue;
     }
 
     @Override
@@ -91,9 +79,9 @@ public class PickerDefinition extends ParameterDefinition {
             return getDefaultParameterValue();
         }
 
-        DateParameterValue value = new DateParameterValue(getName(), requestedValue, defaultFormat, getDescription());
-        value.createValueFromPostRequest(defaultFormat);
-        return value;
+        DateParameterValue dateParameterValue = new DateParameterValue(getName(), requestedValue, defaultFormat, getDescription());
+        dateParameterValue.createValueFromPostRequest(defaultFormat);
+        return dateParameterValue;
     }
 
 }
