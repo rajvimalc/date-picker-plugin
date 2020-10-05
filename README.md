@@ -10,7 +10,7 @@ Date Picker Plugin for Jenkins (built with Gradle)
 
 ### Based on the code from:
 https://github.com/jenkinsci/date-parameter-plugin
-######Thanks to Github User: JuHyun Lee (leejaycoke)
+##### Thanks to Github User: JuHyun Lee (leejaycoke)
 
 
 ## About parameters:
@@ -31,19 +31,19 @@ https://github.com/jenkinsci/date-parameter-plugin
   
 - Default Value: Optional
 
-  1. ####Picker Type: `DATE_TIME (yyyy-MM-dd'T'HH:mm)`
+  ##### 1. Picker Type: `DATE_TIME (yyyy-MM-dd'T'HH:mm)`
   
      Example: `2020-01-01T14:10`
    
      Defaulted to ISO format `yyyy-MM-dd'T'HH:mm` (output of `<input type="datetime-local"/>`)
   
-  2. ####Picker Type: `DATE (yyyy-MM-dd)`
+  ##### 2. Picker Type: `DATE (yyyy-MM-dd)`
 
      Example: `2020-01-01`
  
      Defaulted to `yyyy-MM-dd` format (output of `<input type="date"/>`)
 
-  3. ####Picker Type: `TIME (HH:mm)`
+  ##### 3. Picker Type: `TIME (HH:mm)`
 
      Example: `14:10`
  
