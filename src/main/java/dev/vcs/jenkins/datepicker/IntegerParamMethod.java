@@ -1,5 +1,7 @@
 package dev.vcs.jenkins.datepicker;
 
+import lombok.Getter;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -12,31 +14,20 @@ public class IntegerParamMethod {
 
     private final static Pattern PATTERN = Pattern.compile("^(?<name>.+)\\((?<parameter>[0-9]+)\\);?$");
 
-    public String name;
+    @Getter
+    public final String name;
 
-    public Integer parameter;
+    @Getter
+    public final Integer parameter;
 
-    private String code;
+    @Getter
+    private final String code;
 
     public IntegerParamMethod(String code) {
         this.code = code;
-        parse();
-    }
-
-    private void parse() {
         Matcher matcher = PATTERN.matcher(code);
-        if (matcher.matches()) {
-            name = matcher.group("name");
-            parameter = Integer.parseInt(matcher.group("parameter"));
-        }
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Integer getParameter() {
-        return parameter;
+        name = matcher.matches() ? matcher.group("name") : null;
+        parameter = matcher.matches() ? Integer.parseInt(matcher.group("parameter")) : null;
     }
 
 }

@@ -1,5 +1,7 @@
 package dev.vcs.jenkins.datepicker;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import org.joda.time.LocalDateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -15,22 +17,16 @@ import java.util.List;
  * Email: rajvimalc@gmail.com
  * Created on: 8/7/2019 3:25 PM
  */
+@RequiredArgsConstructor
 public class StringLocalDateValue implements Serializable {
 
     private static final String JAVA_PATTERN = "^LocalDate(Time)?\\.now\\(\\)(\\.(plus|minus)(Seconds|Minutes|Hours|Days|Months|Years)\\([0-9]+\\))*;?$";
 
+    @Getter
     private final String stringLocalDate;
 
+    @Getter
     private final String stringDateFormat;
-
-    public StringLocalDateValue(String stringLocalDate, String stringDateFormat) {
-        this.stringLocalDate = stringLocalDate;
-        this.stringDateFormat = stringDateFormat;
-    }
-
-    public String getStringLocalDate() {
-        return stringLocalDate;
-    }
 
     public String getStringValue() {
         return stringLocalDate;
@@ -47,10 +43,6 @@ public class StringLocalDateValue implements Serializable {
 
     public boolean isJavaFormat() {
         return stringLocalDate.matches(JAVA_PATTERN);
-    }
-
-    public String getStringDateFormat() {
-        return stringDateFormat;
     }
 
     LocalDateTime parseJava() {

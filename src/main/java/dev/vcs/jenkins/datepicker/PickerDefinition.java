@@ -14,13 +14,13 @@ import static org.apache.commons.lang.StringUtils.isEmpty;
  */
 public class PickerDefinition extends ParameterDefinition {
 
-    private String type;
+    private final String type;
 
-    private String defaultFormat;
+    private final String defaultFormat;
 
-    private String defaultValue;
+    private final String defaultValue;
 
-    private String value;
+    private final String value;
 
     protected PickerDefinition(String name, String description, String type, String defaultValue) {
         super(name, description);

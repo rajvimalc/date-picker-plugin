@@ -1,5 +1,6 @@
 package dev.vcs.jenkins.datepicker;
 
+import lombok.Getter;
 import org.apache.commons.lang.StringUtils;
 
 /**
@@ -15,8 +16,10 @@ public enum PickerType {
 
     TIME("HH:mm");
 
+    @Getter
     private final String format;
 
+    @Getter
     private final String displayDescription;
 
     PickerType(String format) {
@@ -26,14 +29,6 @@ public enum PickerType {
 
     public String getType() {
         return this.name();
-    }
-
-    public String getFormat() {
-        return format;
-    }
-
-    public String getDisplayDescription() {
-        return displayDescription;
     }
 
     public static PickerType resolve(String typeStr) {

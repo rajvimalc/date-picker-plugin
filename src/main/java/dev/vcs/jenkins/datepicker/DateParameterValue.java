@@ -9,6 +9,7 @@ import hudson.model.Run;
 import hudson.model.StringParameterValue;
 import hudson.tasks.BuildWrapper;
 import hudson.util.VariableResolver;
+import lombok.Getter;
 import org.apache.commons.lang.StringUtils;
 import org.kohsuke.stapler.DataBoundConstructor;
 
@@ -22,6 +23,7 @@ import java.util.Objects;
  */
 public class DateParameterValue extends StringParameterValue {
 
+    @Getter
     private String dateFormat;
 
     @DataBoundConstructor
@@ -44,10 +46,6 @@ public class DateParameterValue extends StringParameterValue {
 
     public void createValueFromPostRequest(String dateFormat) {
         this.dateFormat = dateFormat;
-    }
-
-    public String getDateFormat() {
-        return dateFormat;
     }
 
     @Override

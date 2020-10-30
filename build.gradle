@@ -1,10 +1,10 @@
 plugins {
     id 'java'
-    id 'org.jenkins-ci.jpi' version '0.33.0'
+    id 'org.jenkins-ci.jpi' version '0.39.0'
 }
 
 group 'dev.vcs.jenkins'
-version '1.0'
+version '1.1'
 description 'Date Picker Plugin for Jenkins (built with Gradle)'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -17,8 +17,10 @@ repositories {
 }
 
 dependencies {
-    compile 'joda-time:joda-time:2.10.3'
-    testCompile 'junit:junit:4.12'
+    implementation 'joda-time:joda-time:2.10.8'
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+    testImplementation 'junit:junit:4.12'
 }
 
 jenkinsPlugin {
