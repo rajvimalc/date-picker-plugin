@@ -24,11 +24,11 @@ dependencies {
 }
 
 jenkinsPlugin {
-    coreVersion = '2.157'   // Version of Jenkins core this plugin depends on.
-    displayName = 'Date Picker Plugin'  // Human-readable name of plugin.
+    coreVersion = '2.249.2'                                                         // Version of Jenkins core this plugin depends on.
+    displayName = 'Date Picker Plugin'                                              // Human-readable name of plugin.
     url = 'https://github.com/rajvimalc/date-picker-plugin/wiki/Date-Picker-Plugin' // URL for plugin on Jenkins Wiki.
-    gitHubUrl = 'https://github.com/rajvimalc/date-picker-plugin'   // Plugin URL on GitHub.
-    shortName = 'date-picker'    // Plugin ID, defaults to the project name without trailing '-plugin'
+    gitHubUrl = 'https://github.com/rajvimalc/date-picker-plugin'                   // Plugin URL on GitHub.
+    shortName = 'date-picker'                                                       // Plugin ID, defaults to the project name without trailing '-plugin'
 
     developers {
         developer {

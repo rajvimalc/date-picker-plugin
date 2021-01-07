@@ -3,7 +3,7 @@
     <ExternalSystemSettings>
       <option name="env">
         <map>
-          <entry key="GRADLE_OPTS" value="&quot;-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005&quot;" />
+          <entry key="GRADLE_OPTS" value="&quot;-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8889&quot;" />
         </map>
       </option>
       <option name="executionName" />
