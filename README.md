@@ -126,3 +126,16 @@ Time to End: 09:15
 [Pipeline] End of Pipeline
 Finished: SUCCESS
 ```
+
+
+#### Installation:
+
+Use the ‘Upload Plugin’ option at and install the .hpi file.
+
+http://localhost:8888/pluginManager/advanced
+
+![Screenshot](usage/installation-upload.png)
+
+It should look like this after installation at ‘Installed’ tab (version will be 1.0).
+
+![Screenshot](usage/installation-installed.png)
